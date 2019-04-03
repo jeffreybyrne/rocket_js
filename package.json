@@ -23,5 +23,8 @@
   "homepage": "https://github.com/bitmakerlabs/rocket_js#readme",
   "devDependencies": {
     "jest": "^23.6.0"
+  },
+  "dependencies": {
+    "fsevents": "^1.2.7"
   }
 }
