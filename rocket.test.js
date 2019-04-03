@@ -75,6 +75,46 @@ describe('Rocket', () => {
     });
   });
 
-  // ...
+  describe('sendCodedSignal', () => {
+    test('a rocket with no message returns boop', () => {
+      let newRocket = new Rocket();
+
+      result = newRocket.sendCodedSignal();
+
+      expect(result).toEqual('boop');
+    });
+
+    test('a rocket with a small message returns beep', () => {
+      let newRocket = new Rocket();
+
+      result = newRocket.sendCodedSignal(8);
+
+      expect(result).toContain('beep');
+    });
+
+    test('a flying rocket with a short message returns beep', () => {
+      let newRocket = new Rocket({flying: true});
+
+      result = newRocket.sendCodedSignal(3);
+
+      expect(result).toContain('beep beep');
+    });
+
+    test('a grounded rocket with a long message returns boop beep beep', () => {
+      let newRocket = new Rocket({flying: false});
+
+      result = newRocket.sendCodedSignal(42);
+
+      expect(result).toContain('boop beep beep');
+    });
+
+    test('a flying rocket with a long message returns boop boop boop', () => {
+      let newRocket = new Rocket({flying: true});
+
+      result = newRocket.sendCodedSignal(42);
+
+      expect(result).toContain('boop boop boop');
+    });
+  });
 
 });
