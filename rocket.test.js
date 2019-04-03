@@ -12,17 +12,31 @@ describe('Rocket', () => {
       expect(typeof newRocket.colour).toBe("string");
     });
 
-    test.skip("it should set the rocket's name if provided", () => {
+    test("it should set the rocket's name if provided", () => {
       let newRocket = new Rocket({name: "ICBM"});
 
-      result = newRocket.name;
+      let result = newRocket.name;
 
       expect(result).toEqual("ICBM");
     });
   });
 
   describe('liftOff', () => {
-    // ...
+    test('a flying rocket cannot lift off', () => {
+      let newRocket = new Rocket({flying: true});
+
+      result = newRocket.liftOff();
+
+      expect(result).toEqual(false);
+    });
+
+    test('a grounded rocket can lift off', () => {
+      let newRocket = new Rocket({flying: false});
+
+      result = newRocket.liftOff();
+
+      expect(result).toEqual(true);
+    });
   });
 
   // ...
