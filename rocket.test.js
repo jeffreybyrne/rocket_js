@@ -57,6 +57,24 @@ describe('Rocket', () => {
     });
   });
 
+  describe('status', () => {
+    test('a flying rocket has a status that says it is flying', () => {
+      let newRocket = new Rocket({flying: true});
+
+      result = newRocket.status();
+
+      expect(result).toContain('flying');
+    });
+
+    test('a grounded rocket has a status that says it is ready for liftoff', () => {
+      let newRocket = new Rocket({flying: false});
+
+      result = newRocket.status();
+
+      expect(result).toContain('liftoff');
+    });
+  });
+
   // ...
 
 });
