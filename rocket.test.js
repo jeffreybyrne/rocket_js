@@ -92,7 +92,7 @@ describe('Rocket', () => {
       expect(result).toContain('beep');
     });
 
-    test('a flying rocket with a short message returns beep', () => {
+    test('a flying rocket with a short message returns beep beep', () => {
       let newRocket = new Rocket({flying: true});
 
       result = newRocket.sendCodedSignal(3);
