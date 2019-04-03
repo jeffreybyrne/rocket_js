@@ -39,6 +39,24 @@ describe('Rocket', () => {
     });
   });
 
+  describe('land', () => {
+    test('a flying rocket can land', () => {
+      let newRocket = new Rocket({flying: true});
+
+      result = newRocket.land();
+
+      expect(result).toEqual(true);
+    });
+
+    test('a grounded rocket cannot land', () => {
+      let newRocket = new Rocket({flying: false});
+
+      result = newRocket.land();
+
+      expect(result).toEqual(false);
+    });
+  });
+
   // ...
 
 });
